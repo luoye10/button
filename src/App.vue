@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ButtonPage></ButtonPage>
+    <ButtonPage @button-click="appClick" @page-click="conClick"></ButtonPage>
   </div>
 </template>
 
@@ -10,6 +10,14 @@ export default {
   name: 'App',
   components: {
     ButtonPage,
+  },
+  methods: {
+    appClick(m, n) {
+      console.log(m, n);
+    },
+    conClick(str) {
+      console.log(str);
+    },
   },
 };
 </script>
