@@ -14,6 +14,12 @@
       <custom-button type="warning" round>
         <div slot="b">警告按钮</div>
       </custom-button>
+      <custom-button type="primary" loading round size="medium">
+        <div slot="b">加载中</div>
+      </custom-button>
+      <custom-button type="success" disabled size="small">
+        <div slot="b">按钮</div>
+      </custom-button>
     </el-row>
   </div>
 </template>

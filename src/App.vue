@@ -6,8 +6,14 @@
 
 <script>
 import ButtonPage from './components/ButtonPage';
+
 export default {
   name: 'App',
+  data() {
+    return {
+      word: '',
+    };
+  },
   components: {
     ButtonPage,
   },

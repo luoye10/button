@@ -1,11 +1,20 @@
 <template>
-  <button :class="customClass" @click="sendClick">
+  <button
+    :class="[customClass, 'btn', { dis: disabled || loading }]"
+    @click="sendClick"
+    :disabled="disabled || loading"
+  >
+    <loading-icon v-if="loading" class="icon"></loading-icon>
     <slot name="b"></slot>
   </button>
 </template>
 
 <script>
+import LoadingIcon from '@/assets/loadingIcon.vue';
 export default {
+  components: {
+    LoadingIcon,
+  },
   name: 'CustomButton',
   props: {
     type: {
@@ -20,12 +29,11 @@ export default {
       type: String,
       default: '',
     },
-    circle: {
-      type: Boolean,
-      default: false,
-    },
+    circle: Boolean,
     plain: Boolean,
     round: Boolean,
+    loading: Boolean,
+    disabled: Boolean,
   },
   methods: {
     sendClick() {
@@ -50,6 +58,12 @@ export default {
       if (this.plain) {
         cls.push('plain');
       }
+      if (this.loading) {
+        cls.push('loading');
+      }
+      if (this.disabled) {
+        cls.push('disabled');
+      }
       return cls;
     },
   },
@@ -57,9 +71,19 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 0 10px;
+  color: white;
+}
 .primary {
   background: #6cf;
-  color: white;
 }
 .circle {
   width: 50px;
@@ -68,38 +92,48 @@ export default {
 }
 .danger {
   background: red;
-  margin: 0 10px;
-  color: white;
-  border-radius: 5px;
 }
-.success:hover {
+.success {
   background: green;
-  color: white;
-  cursor: pointer;
 }
 .plain {
-  border: 1px solid green;
-  color: green;
-  background: greenyellow;
-  margin: 0 10px;
-  border-radius: 5px;
-  padding: 10px;
+  color: blue;
+  border-color: blue;
+  background: rgba(209, 209, 253, 0.685);
 }
 .warning {
   background: orange;
-  color: white;
 }
 .round {
   border-radius: 30px;
-  padding: 10px;
 }
 .mini {
+  width: 50px;
   height: 30px;
 }
 .small {
+  width: 80px;
   height: 40px;
 }
 .medium {
+  width: 120px;
   height: 50px;
+}
+.loading {
+  .icon {
+    margin-right: 10px;
+    animation: a 2s linear infinite;
+  }
+}
+@keyframes a {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.dis {
+  cursor: not-allowed;
 }
 </style>
