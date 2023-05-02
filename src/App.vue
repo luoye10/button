@@ -1,11 +1,13 @@
 <template>
   <div id="app">
     <ButtonPage @button-click="appClick" @page-click="conClick"></ButtonPage>
+    <link-page></link-page>
   </div>
 </template>
 
 <script>
 import ButtonPage from './components/ButtonPage';
+import LinkPage from './components/LinkPage.vue';
 
 export default {
   name: 'App',
@@ -16,6 +18,7 @@ export default {
   },
   components: {
     ButtonPage,
+    LinkPage,
   },
   methods: {
     appClick(m, n) {
