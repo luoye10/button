@@ -85,24 +85,39 @@ export default {
 .primary {
   background: #6cf;
 }
-.circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
 .danger {
   background: red;
 }
 .success {
   background: green;
 }
-.plain {
-  color: blue;
-  border-color: blue;
-  background: rgba(209, 209, 253, 0.685);
-}
 .warning {
   background: orange;
+}
+.primary.plain {
+  color: #6cf;
+  border-color: #6cf;
+  background: rgba(230, 230, 250, 0.685);
+}
+.danger.plain {
+  color: red;
+  border-color: red;
+  background: rgba(250, 231, 231, 0.758);
+}
+.success.plain {
+  color: green;
+  border-color: green;
+  background: rgba(227, 250, 227, 0.737);
+}
+.warning.plain {
+  color: orange;
+  border-color: orange;
+  background: rgba(248, 240, 226, 0.721);
+}
+.circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 .round {
   border-radius: 30px;

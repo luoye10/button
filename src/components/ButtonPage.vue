@@ -1,17 +1,17 @@
 <template>
   <div class="container">
     <el-row>
-      <custom-button type="primary" circle @custom-click="startClick">
+      <custom-button type="primary" plain circle @custom-click="startClick">
         <div slot="a">头部</div>
         <footer slot="b">底部</footer>
       </custom-button>
-      <custom-button type="danger" size="small" @custom-click="lastClick">
+      <custom-button type="danger" plain size="small" @custom-click="lastClick">
         <div slot="b">危险</div>
       </custom-button>
       <custom-button type="success" plain @custom-click="click">
         <div slot="b">成功</div>
       </custom-button>
-      <custom-button type="warning" round>
+      <custom-button type="warning" round plain>
         <div slot="b">警告按钮</div>
       </custom-button>
       <custom-button type="primary" loading round size="medium">
